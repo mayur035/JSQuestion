@@ -19,12 +19,28 @@ console.log("answer of 2nd:",output);
 
 
 // 3
-function User(num){
-    return function(){
-        return ++num
-    }
+function User() {
+    let counter = 0; 
+
+    return {
+        increment: function() {
+            counter++;
+        },
+        show: function() {
+            console.log(counter);
+        }
+    };
 }
-console.log("answer of 3rd:",User(2)());//when you call function user then it return function with its laxical scope
+
+const user = User();
+
+// Now you can use the returned object to interact with the private counter
+user.increment();
+user.show();
+
+user.increment();
+user.show();
+
 
 //4
 const data = [
